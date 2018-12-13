@@ -18,6 +18,7 @@ namespace Snake
             this.y = y;
             this.sym = sym;
         }
+
         public void Draw()
         {
             Console.SetCursorPosition(x, y);

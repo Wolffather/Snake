@@ -10,13 +10,23 @@ namespace Snake
     {
         static void Main(string[] args)
         {
-            int x = 1, y = 5;
-            char sym = '*';
 
-            Dot dot = new Dot(x, y, sym);
-            dot.Draw();
+            Console.SetWindowSize(80, 25);
+            Console.SetBufferSize(80, 25);
+
+            //Drawing the frame
+            HorizontalLine hLine1 = new HorizontalLine(0, 78, 0, '+');
+            HorizontalLine hLine2 = new HorizontalLine(0, 78, 24, '+');
+            VerticalLine vLine1 = new VerticalLine(0, 24, 0, '+');
+            VerticalLine vLine2 = new VerticalLine(0, 24, 78, '+');
+            hLine1.Draw();
+            hLine2.Draw();
+            vLine1.Draw();
+            vLine2.Draw();
+
             Console.ReadKey();
-            
+
+
         }
         
     }
