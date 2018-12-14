@@ -46,6 +46,7 @@
     <Compile Include="Direction.cs" />
     <Compile Include="Dot.cs" />
     <Compile Include="Figure.cs" />
+    <Compile Include="FoodCreator.cs" />
     <Compile Include="HorizontalLine.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -12,6 +12,7 @@ namespace Snake
         static void Main(string[] args)
         {
 
+            //Setting Console size and constrainting it
             Console.SetWindowSize(80, 25);
             Console.SetBufferSize(80, 25);
 
@@ -32,27 +33,35 @@ namespace Snake
             Snake snake = new Snake(d, 4, Direction.RIGHT);
             snake.Draw();
 
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
+            //Creating food for snake
+            FoodCreator foodCreator = new FoodCreator(80, 25, '*');
+            Dot food = foodCreator.CreateFood();
+            food.Draw();
 
-            Console.ReadKey();
 
+            //Controlled snake movement
+            while (true)
+            {
+                if (snake.Eat(food))
+                {
+                    food = foodCreator.CreateFood();
+                    food.Draw();
+                    snake.Draw();
+                }
+                else
+                {
+                    snake.Move();
+                }
+                Thread.Sleep(300);
+
+                if (Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo key = Console.ReadKey();
+                    snake.HandleKey(key.Key);
+                }
+                Thread.Sleep(300);
+                snake.Move();
+            }
 
         }
         
